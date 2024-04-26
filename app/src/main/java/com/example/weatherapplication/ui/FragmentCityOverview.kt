@@ -6,12 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.weatherapplication.R
-import com.example.weatherapplication.databinding.FragmentDisplayCitiesOverviewBinding
+import com.example.WeatherApplication.R
+import com.example.WeatherApplication.databinding.FragmentDisplayCitiesOverviewBinding
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
 class FragmentCityOverview : Fragment() {
 
     private var _binding: FragmentDisplayCitiesOverviewBinding? = null
@@ -23,7 +20,7 @@ class FragmentCityOverview : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentDisplayCitiesOverviewBinding.inflate(inflater, container, false)
         return binding.root
