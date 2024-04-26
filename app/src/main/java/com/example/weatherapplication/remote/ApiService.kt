@@ -8,7 +8,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiService {
-    @GET("/onecall?lat={latVal}&lon={longVal}&exclude={}&appid={$API_KEY")
+    @GET("/onecall?lat={latVal}&lon={longVal}&exclude={}&appid={$BuildConfig.API_KEY")
 
     suspend fun getWeatherLatLong(
         @Path("latVal") lat: String,

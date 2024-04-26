@@ -1,3 +1,4 @@
 package com.example.weatherapplication.remote.data
 
-data class WeatherObject()
+data class WeatherObject(val temp: String){
+}
