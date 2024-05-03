@@ -1,9 +1,6 @@
 package com.example.weatherapplication.remote.data
 
-import com.google.gson.annotations.SerializedName
-
 data class WeatherObject(
-    @SerializedName("base")
     val base: String,
     val clouds: Clouds,
     val cod: Int,

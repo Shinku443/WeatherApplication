@@ -9,9 +9,11 @@ import android.widget.AdapterView.OnItemClickListener
 import android.widget.EditText
 import androidx.fragment.app.DialogFragment
 import com.example.weatherapplication.R
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 
+@AndroidEntryPoint
 class AddNewFragmentDialog: DialogFragment() {
 
     interface OnDialogClickedListener {
@@ -35,11 +37,11 @@ class AddNewFragmentDialog: DialogFragment() {
             val editName =
                 (dialog as AlertDialog).findViewById<View>(com.example.weatherapplication.R.id.long_input) as EditText
 
-            Timber.e("clicked")
+            Timber.e("clicked:: ${editName.text}")
             dialog.dismiss()
         }
         builder.setNegativeButton(android.R.string.cancel) { dialog, _ -> dialog.cancel() }
-        builder.show()
+        builder.create()
         Timber.e("add button clicked")
 
         return super.onCreateDialog(savedInstanceState)

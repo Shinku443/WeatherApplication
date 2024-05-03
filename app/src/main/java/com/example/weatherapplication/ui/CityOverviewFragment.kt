@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -45,6 +46,9 @@ class CityOverviewFragment : Fragment() {
 
         binding.addButton.setOnClickListener {
             val inputTest = EditText(context)
+            val addNewFragmentDialog = AddNewFragmentDialog()
+            addNewFragmentDialog.setStyle(DialogFragment.STYLE_NORMAL, 0)
+            addNewFragmentDialog.show(parentFragmentManager, "test")
 
             //viewModel.getWeatherLatLong(lat = "44", long = "44")
             //Timber.e("latlong:: ${viewModel.weatherData}")
