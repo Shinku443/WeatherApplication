@@ -29,6 +29,7 @@ class WeatherViewModel @Inject constructor(
 
     private val _errorOccurred = MutableLiveData(false)
     val errorOccurred = _errorOccurred
+
     fun getWeatherLatLong(lat: String, long: String) {
         viewModelScope.launch {
             isLoadingCompose.value = true

@@ -24,9 +24,9 @@ class MainActivityCompose : ComponentActivity() {
                 //rememberNavController will return a different nav controller inside the composable
                 NavHost(
                     navController = navController,
-                    startDestination = "random_dog_screen"
+                    startDestination = "weather_screen_start"
                 ) {
-                    composable("random_dog_screen") {
+                    composable("weather_screen_start") {
                         MainWeatherScreen(navController = navController)
                     }
                 }

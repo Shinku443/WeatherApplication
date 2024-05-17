@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.weatherapplication.remote.data.Weather
 import timber.log.Timber
 
 
@@ -49,16 +50,23 @@ fun MainWeatherScreen(
                 CircularProgressIndicator()
             } else {
                 if (showLatLonDialog.value) {
-                    LatLongInputDialog(
-                        showDialog = showLatLonDialog.value,
-                        selectedLocation = {
-                            selectedLat = it.first
-                            selectedLon = it.second
-                            viewModel.testVal.value = selectedLat
-                            viewModel.getWeatherLatLong(selectedLat, selectedLon)
-                        },
-                        onDismiss = { showLatLonDialog.value = false })
+                    Column {
+
+                        LatLongInputDialog(
+                            showDialog = showLatLonDialog.value,
+                            selectedLocation = {
+                                selectedLat = it.first
+                                selectedLon = it.second
+                                viewModel.testVal.value = selectedLat
+                                viewModel.getWeatherLatLong(selectedLat, selectedLon)
+                            },
+                            onDismiss = { showLatLonDialog.value = false })
+
+                        //WeatherImage()
+                    }
+
                 }
+
             }
             //Lat Long
             //Weather picture
@@ -68,6 +76,12 @@ fun MainWeatherScreen(
         }
 
     }
+}
+
+
+@Composable
+fun WeatherImage(weather: Weather) {
+
 }
 
 @Composable
@@ -84,7 +98,7 @@ fun LatLongInputDialog(
                 Text("Enter location")
             },
             text = {
-                Column() {
+                Column {
                     TextField(value = latText, onValueChange = {
                         latText = it
                     }, keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number))
